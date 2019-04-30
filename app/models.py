@@ -48,8 +48,8 @@ class User(UserMixin,db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
-#blog catefory model
-class BlogCatergory(db.Model):
+#blog category model
+class BlogCategory(db.Model):
 
     __tablename__ = 'categories'
 
