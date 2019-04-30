@@ -1,0 +1,43 @@
+{% macro displayCategoryList(category_list) %}
+  {% for category in category_list%}
+  <div class="col-md-4 no-pad">
+  <div class="panel panel-default" style="margin-top: 30px;">
+      <div class="panel-body"> 
+          <a href="{{url_for('.category',id=category.id)}}"><p>{{category.name|upper}}</p></a>
+        </div>
+        </div>
+  </div>
+
+    {% endfor %}
+{% endmacro %}
+
+{% macro displayPosts(post_list) %}
+  {% for posts in post_list %}
+  <div class="col-md-6">
+    <div class="well">
+      <div class="row">
+        <p>{{posts.name|upper}}</p></a>
+        <div class="col-md-10 col-sm-12">
+            <h3>{{posts.content}}</h3>
+              <h4>  <span><a href=" {{url_for('.view_pitch',id=pitches.id)}}">view comments</a></span>  </h4>
+
+            <a href=" {{url_for('.post_comment',id=pitches.id)}}"><h4>add a comment</h4></a>
+        </div>
+      </div>
+        </div>
+     
+
+  </div>
+  {% endfor %}
+{% endmacro %}
+
+
+{% macro displaySpecificPost(specific_post_list) %}
+ {% for comment in specific_post_list %}
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+        <hr>
+        <p style="color:orange">{{comment.opinion}} </p>
+         <p style="text-align:right; color:#555652; font-size:10px;">{{comment.time_posted.strftime('%Y/%m/%d || %r') }}</p>
+    </div>
+  {% endfor %}
+{% endmacro %}
