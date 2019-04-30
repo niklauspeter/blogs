@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro %}
+
+{% block styles%}
+    {{ super() }}
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+{% block content %}
+    
+    <div class="jumbotron text-center" style="background-color: #9370DB; color: #fff; padding: 55px 25px; font-family: 'Lobster', cursive;">
+      <h1>MY PERSONAL BLOG</h1>
+    </div>
+  <div style="background-image: url(https://png.pngtree.com/thumb_back/fh260/back_pic/03/92/90/9257e4941eb79e7.jpg); color: #fff; background-size: cover;">
+
+
+    <div class="container" style="font-family: 'Russo One', sans-serif; color: white;">
+      <div class="row" style="margin-top:30px">
+        <h4 class="text-left"><a class="btn btn-primary" href="/add/category"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Category </a></h4>
+
+      
+              {{ macro.displayCategoryList(categories) }}
+              
+            </div>
+          </div>
+        
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+{% endblock %}
+{% macro displayPosts(post_list) %}
+  {% for posts in post_list %}
+    <div class="col-md-6">
+      <div class="well">
+        <div class="row">
+          <div class="col-md-6">
+              <h3>{{posts.content}}</h3>
+          </div>
+          <div class="col-md-6">
+            <p>POSTED: {{posts.date_posted.strftime('%Y/%m/%d || %r')}}</p>
+            <a href="/pitch/{{pitches.id}}"><h4>COMMENT</h4></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  {% endfor %}
+{% endmacro %}
