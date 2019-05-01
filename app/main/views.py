@@ -4,6 +4,7 @@ from ..models import User,Post,Comments,BlogCategory,Votes
 from .. import db,photos
 from . forms import PostForm, CommentForm, CategoryForm,UpdateProfile
 from flask_login import login_required,current_user
+from ..requests import get_quotes
 
 #Route that displays categories on the landing page
 @main.route('/')
@@ -11,9 +12,13 @@ def index():
     """ function returns index page """
 
     category = BlogCategory.get_categories()
+    myquote = get_quotes()
+    quote = myquote['quote']
+    quote_author = myquote['author']
 
+    page = request.args.get('page', 1, type=int)
     title = 'Welcome To My Blog'
-    return render_template('index.html', title = title, categories=category)
+    return render_template('index.html', title = title, categories=category,quote = quote,quote_author = quote_author)
 
 
 
@@ -55,7 +60,8 @@ def new_category():
 
     if form.validate_on_submit():
         name = form.name.data
-        new_category = BlogCategory(name=name)
+        content= form.content.data
+        new_category = BlogCategory(name=name, content=content)
         new_category.save_category()
 
         return redirect(url_for('.index'))

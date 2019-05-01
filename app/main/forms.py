@@ -7,7 +7,7 @@ class PostForm(FlaskForm):
     '''
     Class to create a wtf form for creating a pitch
     '''
-    content = TextAreaField('ADD YOUR POST')
+    content = TextAreaField('ADD a relative POST')
     submit = SubmitField('SUBMIT')
 
 class CommentForm(FlaskForm):
@@ -21,7 +21,8 @@ class CategoryForm(FlaskForm):
     '''
     Class to create a wtf form for creating a pitch
     '''
-    name =  StringField('Category Name', validators=[Required()])
+    name =  StringField('Post Title', validators=[Required()])
+    content = TextAreaField('Insert Text')
     submit = SubmitField('Create')
 
 class UpdateProfile(FlaskForm):

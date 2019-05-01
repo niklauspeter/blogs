@@ -6,26 +6,21 @@ from .forms import RegistrationForm, LoginForm
 from .. import db
 from ..email import mail_message
 
+
 # registration route
-@auth.route('templates/auth/reqister',methods=['GET','POST'])
+@auth.route('/register',methods = ["GET","POST"])
 def register():
-    '''
-    function that registaers the users
-    '''
-    form =RegistrationForm()
+    form = RegistrationForm()
     if form.validate_on_submit():
-        user =User(email=form.email.data,username=form.username.data,password=form.password.data)
+        user = User(email = form.email.data, username = form.username.data,password = form.password.data)
         db.session.add(user)
         db.session.commit()
 
-        return redirect(url_for('auth.login'))
-    title="Registration"
-
-    mail_message("Welcome to watchlist","email/welcome_user",user.email,user=user)
+        #mail_message("Welcome to watchlist","email/welcome_user",user.email,user=user)
 
         return redirect(url_for('auth.login'))
         title = "New Account"
-    return render_template('auth/register.html',registration_form=form,title=title)
+    return render_template('auth/register.html',registration_form = form)
 
 # Login function
 @auth.route('/login',methods=['GET','POST'])
