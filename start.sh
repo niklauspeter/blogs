@@ -1,5 +1,5 @@
 export MAIL_USERNAME='oriokiklaus@gmail.com'
-export MAIL_PASSWORD='chrisbroun'
+export MAIL_PASSWORD='sikupei'
 export SECRET_KEY='magickey'
 
 
