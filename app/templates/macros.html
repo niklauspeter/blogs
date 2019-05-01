@@ -1,9 +1,10 @@
 {% macro displayCategoryList(category_list) %}
   {% for category in category_list%}
-  <div class="col-md-4 no-pad">
-  <div class="panel panel-default" style="margin-top: 30px;">
+  <div class="col-md-7 no-pad">
+  <div class="panel panel-default" style="margin-top: 5px; color: black;">
       <div class="panel-body"> 
           <a href="{{url_for('.category',id=category.id)}}"><p>{{category.name|upper}}</p></a>
+          <p>{{category.content}}</p>
         </div>
         </div>
   </div>
