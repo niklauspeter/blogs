@@ -1,4 +1,4 @@
-# One minute Pitch
+# soRANDOMBLOGS
 
 This project was generated with python version 3.6.
 
