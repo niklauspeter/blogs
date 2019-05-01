@@ -9,7 +9,7 @@
 {% block content %}
 <div class="container">
      <div class="col-md-12">
-        <p class="text-left"><a class="btn btn-primary" href="{{url_for('.new_pitch',id=pitches.category_id)}}">Post Pitch</a></p>
+        <p class="text-left"><a class="btn btn-primary" href="{{url_for('.view_post',id=posts.category_id)}}">Post Post</a></p>
         <div class="well" style="background-color:lightblue">
           <h3>{{posts.content}}</h3>
         </div>
@@ -18,11 +18,11 @@
         <div class="col-md-6 col-offset-1">
           <table>
             <tr>
-              <td><h4 class="text-left"><a class="btn btn-round" href="{{url_for('.upvote',id=pitches.id)}}">Upvote <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  </a></h4></td>
+              <td><h4 class="text-left"><a class="btn btn-round" href="{{url_for('.upvote',id=posts.id)}}">Upvote <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  </a></h4></td>
               <td>&nbsp;</td>
-              <td><h4 class="text-left"><a class="btn btn-round" href="{{url_for('.downvote',id=pitches.id)}}">Downvote <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>  </a></h4></td>
+              <td><h4 class="text-left"><a class="btn btn-round" href="{{url_for('.downvote',id=posts.id)}}">Downvote <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>  </a></h4></td>
               <td>&nbsp;</td>
-              <td><h4 class="text-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    Comments   <a class="btn btn-primary" href="{{url_for('.post_comment',id=pitches.id)}}"> Add your comment</a></h4></td>
+              <td><h4 class="text-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    Comments   <a class="btn btn-primary" href="{{url_for('.post_comment',id=posts.id)}}"> Add your comment</a></h4></td>
             </tr>
           </table>
 

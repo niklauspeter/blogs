@@ -19,9 +19,9 @@
         <p>{{posts.name|upper}}</p></a>
         <div class="col-md-10 col-sm-12">
             <h3>{{posts.content}}</h3>
-              <h4>  <span><a href=" {{url_for('.view_pitch',id=pitches.id)}}">view comments</a></span>  </h4>
+              <h4><span><a href=" {{url_for('.view_post',id=posts.id)}}">view comments</a></span></h4>
 
-            <a href=" {{url_for('.post_comment',id=pitches.id)}}"><h4>add a comment</h4></a>
+            <a href=" {{url_for('.post_comment',id=posts.id)}}"><h4>add a comment</h4></a>
         </div>
       </div>
         </div>

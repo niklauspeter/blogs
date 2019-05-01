@@ -28,7 +28,7 @@ class User(UserMixin,db.Model):
     pass_secure = db.Column(db.String(255))
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
-    pitches = db.relationship("Post", backref="user", lazy = "dynamic")
+    posts = db.relationship("Post", backref="user", lazy = "dynamic")
     comment = db.relationship("Comments", backref="user", lazy = "dynamic")
     vote = db.relationship("Votes", backref="user", lazy = "dynamic")
 
@@ -71,7 +71,7 @@ class BlogCategory(db.Model):
 
 #blog post class
 class Post(db.Model):
-    """ List of pitches in each category """
+    """ List of posts in each category """
 
     __tablename__ = 'posts'
 
@@ -124,7 +124,7 @@ class Comments(db.Model):
     @classmethod
     def get_comments(self, id):
         comment = Comments.query.order_by(
-            Comments.time_posted.desc()).filter_by(pitches_id=id).all()
+            Comments.time_posted.desc()).filter_by(posts_id=id).all()
         return comment
 
 #votes
